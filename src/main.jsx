@@ -5,16 +5,18 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import Home from './Pages/Home';
+import Main from './Main/Main';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <MainLayout></MainLayout>,
+    element: <Main></Main>,
     errorElement: <h2 className=' text-center mt-20'>This is 404 not fount</h2>,
     children:[
       {
-        path: '/',
-        
+        path: "/",
+        element: <Home></Home>
       }
   ]
   },
