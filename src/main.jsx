@@ -6,17 +6,27 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Home from './Pages/Home';
-import Main from './Main/Main';
+import MainLayout from './Main/MainLayout';
+import Wishlist from './Pages/Wishlist';
+import BookDetail from './Pages/BookDetail';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Main></Main>,
+    element: <MainLayout></MainLayout>,
     errorElement: <h2 className=' text-center mt-20'>This is 404 not fount</h2>,
     children:[
       {
         path: "/",
         element: <Home></Home>
+      },
+      {
+        path:"/wishlist",
+        element: <Wishlist></Wishlist>
+      },
+      {
+        path: "/book/:id",
+        element: <BookDetail></BookDetail>
       }
   ]
   },
