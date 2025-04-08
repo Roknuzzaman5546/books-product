@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import BookCard from '../Components/BookCard';
 import Loading from '../Components/loading';
+import BookList from '../Components/BookList';
 
 const Home = () => {
     const [loading, setLoading] = useState(false);
@@ -54,21 +55,19 @@ const Home = () => {
                     <option value="science">Science</option>
                 </select>
             </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-5">
-                {loading ? (
-                    <div className="flex justify-center items-center w-full col-span-full">
-                        <Loading />
-                    </div>
+            {loading ? (
+                <div className="flex justify-center items-center w-full col-span-full">
+                    <Loading />
+                </div>
+            ) : (
+                filteredBooks.length > 0 ? (
+                    <>
+                        <BookList books={filteredBooks} />
+                    </>
                 ) : (
-                    filteredBooks.length > 0 ? (
-                        filteredBooks.map(book => <BookCard key={book.id} book={book} />)
-                    ) : (
-                        <p className="text-center col-span-full text-gray-500">No books found.</p>
-                    )
-                )}
-            </div>
-
+                    <p className="text-center col-span-full text-gray-500">No books found.</p>
+                )
+            )}
             <div className="flex justify-center gap-4 mt-5">
                 <button
                     onClick={() => setPage(p => Math.max(p - 1, 1))}
@@ -83,7 +82,7 @@ const Home = () => {
                 <span className="px-4 py-2 text-lg font-serif items-center">Page {page}</span>
                 <button
                     onClick={() => setPage(p => p + 1)}
-                    className="group relative flex w-28 items-center rounded-lg border-2 border-blue-500 p-3 text-blue-500"><span>Next</span><span className="absolute left-3 box-content flex w-1/6 justify-center rounded-md bg-blue-500 duration-300 group-hover:w-5/6"><svg viewBox="0 0 24 24" fill="none" className="w-10" xmlns="http://www.w3.org/2000/svg"><g strokeWidth="0"></g><g strokeLinecap="round" strokeLinejoin="round"></g><g><path d="M4 12H20M20 12L14 6M20 12L14 18" stroke="#fff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path></g></svg></span>
+                    className="group relative flex w-28 items-center rounded-lg border-2 border-blue-500 p-3 text-blue-500"><span className=' ml-7'>Next</span><span className="absolute left-3 box-content flex w-1/6 justify-center rounded-md bg-blue-500 duration-300 group-hover:w-5/6"><svg viewBox="0 0 24 24" fill="none" className="w-10" xmlns="http://www.w3.org/2000/svg"><g strokeWidth="0"></g><g strokeLinecap="round" strokeLinejoin="round"></g><g><path d="M4 12H20M20 12L14 6M20 12L14 18" stroke="#fff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path></g></svg></span>
                 </button>
 
             </div>
