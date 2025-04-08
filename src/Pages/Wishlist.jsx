@@ -13,7 +13,7 @@ const Wishlist = () => {
     }, []);
   
     return (
-      <div>
+      <div className=' md:container w-11/12 mx-auto mt-8'>
         <h2 className="text-2xl font-bold mb-4">Your Wishlist</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {books.map(book => <BookCard key={book.id} book={book} />)}
