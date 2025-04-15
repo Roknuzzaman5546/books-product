@@ -1,3 +1,4 @@
+// this is bookCard pages
 import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { GiSelfLove } from "react-icons/gi";
