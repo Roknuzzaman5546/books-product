@@ -15,7 +15,7 @@ Bss hema is a e commerce website built with  Tailwind Css React.js. It aims to p
 
 ## Demo
 
-Check out the live website: [Hema Live link](https://books-products-7f049.web.app/)
+Check out the live website: [Live link](https://books-products-7f049.web.app/)
 
 
 ## Technologies
