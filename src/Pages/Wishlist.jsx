@@ -26,15 +26,18 @@ const Wishlist = () => {
   return (
     <div className=' md:container w-11/12 mx-auto my-8'>
       <h2 className="text-2xl font-bold mb-4">Your Wishlist</h2>
-        {loading ? (
-          <div className="flex justify-center items-center w-full col-span-full">
-            <Loading />
-          </div>
-        ) :
-          <>
-            <BookList books={books} isItWishLIst={isItWishLIst}  />
-          </>
-        }
+      {loading ? (
+        <div className="flex justify-center items-center w-full col-span-full">
+          <Loading />
+        </div>
+      ) :
+        <>
+          {books.length > 0 ?
+            <BookList books={books} isItWishLIst={isItWishLIst} />
+            : <h2 className=' text-2xl font-serif italic mt-16 text-center'>Here is no any books in your WishList.!!</h2>
+          }
+        </>
+      }
     </div>
   );
 };
